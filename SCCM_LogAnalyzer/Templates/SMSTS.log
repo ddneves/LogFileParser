@@ -1,0 +1,3 @@
+<![LOG[{Log:*}]LOG]!><time="{Time:*}.846-120" date="{Date:*}" component="{Component:*}" context="{Context:*}" type="{Type:*}" thread="{ThreadID:1580}" file="{File:*}">
+<![LOG[Executing command line: "C:\WINDOWS\system32\diskpart.exe" /s "C:\WINDOWS\TEMP\DiskPartScript.txt"]LOG]!><time="18:23:21.871-120" date="07-12-2016" component="OSDSetupHook" context="" type="1" thread="1580" file="commandline.cpp:827">
+<![LOG[Process completed with exit code 0]LOG]!><time="18:23:25.605-120" date="07-12-2016" component="OSDSetupHook" context="" type="1" thread="1580" file="commandline.cpp:1123">
