@@ -1,2 +1,2 @@
-# SCCM_LogAnalyzer
-Gathers a defined subset of logs for SCCM and highlights important lines.
+# LogAnalyzer
+Gathers a defined subset of logs and creates a queryable class for it.
