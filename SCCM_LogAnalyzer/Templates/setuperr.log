@@ -1,0 +1,117 @@
+﻿2016-07-20 09:00:55, Error                 SP     CSetupPlatform::ResurrectNewSystem: Cannot resurrect new system.: Win32Exception: \\?\C:\$Windows.~BT\Sources\NewSystem.dat: The system cannot find the file specified. [0x00000002] __cdecl UnBCL::FileStream::FileStream(const class UnBCL::String *,enum UnBCL::FileMode,enum UnBCL::FileAccess,enum UnBCL::FileShare,unsigned long)[gle=0x00000002]
+2016-07-21 20:12:53, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:12:53, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\DefaultAppPool. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:12:53, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5 Classic. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:13:03, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:13:03, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\DefaultAppPool. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:13:03, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5 Classic. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:13:26, Error                 CSI    00000001 (F) 80220008 [Error,Facility=FACILITY_STATE_MANAGEMENT,Code=8] #250121# from CWcmScalarInstanceCore::GetCurrentValue(options = 393216, status = '(null)', value = { type: 40972, bytes ( 12 ): 65006e002d00550053000000 })
+[gle=0x80004005]
+2016-07-21 20:14:17, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:14:17, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\DefaultAppPool. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:14:17, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5 Classic. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:14:22, Error      [0x080831] MIG    CSIAgent: Invalid xml format: FormatException: Component with display name: Plugin/{C939EC0F-2F56-4CE8-AF56-2336596A5FA7} already loaded __cdecl Mig::CMXEMigrationXml::CMXEMigrationXml(class Mig::CPlatform *,class UnBCL::String *,class UnBCL::XmlDocument *,class UnBCL::String *,class UnBCL::String *)
+2016-07-21 20:16:35, Error      [0x0808fe] MIG    Plugin {526D451C-721A-4b97-AD34-DCE5D8CD22C5}: [shmig] Failed to get preferred homegroup with hr=0x80070490
+2016-07-21 20:18:01, Error                        CSetupAutomation::Resurrect: File not found: C:\$WINDOWS.~BT\Sources\Panther\automation.dat[gle=0x00000002]
+2016-07-21 20:18:01, Error                 SP     CSetupPlatform::ResurrectAutomation: Failed to resurrect automation: 0x80070002[gle=0x00000002]
+2016-07-21 20:18:01, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:18:01, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\DefaultAppPool. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:18:01, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5 Classic. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:18:33, Error                 MOUPG  CSetupHost::ReportEventW(1665): Result = 0x8024F005
+2016-07-21 20:18:33, Error                 MOUPG  SetupHost: Reporting pending reboot event failed: hr = [0x8024F005]
+2016-07-21 20:27:36, Error      [0x080831] MIG    CSIAgent: Invalid xml format: FormatException: Component with display name: Plugin/{C939EC0F-2F56-4CE8-AF56-2336596A5FA7} already loaded __cdecl Mig::CMXEMigrationXml::CMXEMigrationXml(class Mig::CPlatform *,class UnBCL::String *,class UnBCL::XmlDocument *,class UnBCL::String *,class UnBCL::String *)
+2016-07-21 20:30:59, Error                 MIG    COnlineWinNTPlatform::AddPathToSearchIndexer - Failed to create CSearchManager instance, error: 0x80070422[gle=0x000003f0]
+2016-07-21 20:38:26, Error      [0x0808fe] MIG    Plugin {0b23c863-4410-4153-8733-a60c9b1990fb}: TableTextServiceMig!RemoveObsoleteCHSHKLMRegkey - fail to open regkey (software\Microsoft\CTF\TIP\{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1}\LanguageProfile\0x00000804) = 2
+2016-07-21 20:38:26, Error      [0x0808fe] MIG    Plugin {0b23c863-4410-4153-8733-a60c9b1990fb}: TableTextServiceMig!ApplySuccess() remove HKLM Registries error
+2016-07-21 20:38:26, Error      [0x0808fe] MIG    Plugin {6CF7C0FC-91DD-4D47-9B6F-0769F8AE68D2}: [TpmScr] - check completion signature failed, skip this folder. file=C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A9238\completed.txt
+2016-07-21 20:38:29, Error      [0x0808fe] MIG    Plugin {ee036dc0-f9b7-4d2d-bb94-3dd3102c5804}: BRIDGEMIG: ParseRegistryIfBridgeExists: query bridge presence key failed 0x139f, bridge present = 0
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{96E080C7-143C-11D1-B40F-00A0C9223196}\{3C0D501A-140B-11D1-B40F-00A0C9223196} -> Migrated [0000000000000000], configured [ksfilter.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: HDAUDIO\FUNC_01&VEN_8086&DEV_2807&SUBSYS_80860101&REV_1000\4&104f331b&0&0001 -> Migrated [0000000000000000], configured [oem41.inf/intcdaud.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: PCI\VEN_8086&DEV_0C0C&SUBSYS_221117AA&REV_06\3&21436425&0&18 -> Migrated [0000000000000000], configured [hdaudbus.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{cfd669f1-9bc2-11d0-8299-0000f822fe8a}\{0A4252A0-7E70-11D0-A5D6-28DB04C10000} -> Migrated [0000000000000000], configured [ksfilter.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{eec12db6-ad9c-4168-8658-b03daef417fe}\{ABD61E00-9350-47e2-A632-4438B90C6641} -> Migrated [0000000000000000], configured [wdmaudio.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{ddf4358e-bb2c-11d0-a42f-00a0c9223196}\{97EBAACB-95BD-11D0-A3EA-00A0C9223196} -> Migrated [0000000000000000], configured [ksfilter.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: ROOT\WPD\0000 -> Migrated [0000000000000000], configured [oem7.inf/sensorssimulatordriver.inf] and has problem CM_PROB_FAILED_ADD (31) [0xC0000001].
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{97ebaacc-95bd-11d0-a3ea-00a0c9223196}\{53172480-4791-11D0-A5D6-28DB04C10000} -> Migrated [0000000000000000], configured [ksfilter.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: DISPLAY\MEI96A2\1&8713bca&0&UID0 -> Migrated [0000000000000000], configured [monitor.inf] and not present.
+2016-07-21 20:38:30, Error      [0x0808fe] MIG    Plugin {ff9c714f-b864-4f43-ae39-ec07d7385abe}: SW\{cfd669f1-9bc2-11d0-8299-0000f822fe8a}\{CF1DDA2C-9743-11D0-A3EE-00A0C9223196} -> Migrated [0000000000000000], configured [ksfilter.inf] and not present.
+2016-07-21 20:38:30, Error      [0x08038d] MIG    Failure while calling IPostApply->ApplySuccess for Plugin={ServerPath="%windir%\system32\migration\adammigrate.dll", CLSID={43CCF250-2A74-48c6-9620-FC312EC475D6}, ThreadingModel=Apartment}. Error: 0x80070002
+2016-07-21 20:38:30, Error                 SP     Error READ, 0x00000002 while gathering/applying object: apply-success, Action,CMXEPlugin,C:\$WINDOWS.~BT\Work\MachineSpecific\Working\agentmgr\CCSIAgent,%windir%\system32\migration\adammigrate.dll,{43CCF250-2A74-48c6-9620-FC312EC475D6},Apartment. Will return 2[gle=0x000000cb]
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm0 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm1 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm10 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm11 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm12 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm13 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm14 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm15 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm16 failed with 0x80070bc2
+2016-07-21 20:38:38, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm17 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm18 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm19 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm2 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm20 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm21 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm22 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm23 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm24 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm25 failed with 0x80070bc2
+2016-07-21 20:38:39, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm3 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm4 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm5 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm6 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm7 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm8 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x0808fe] MIG    Plugin {d2caca93-9eef-4c24-9790-61cdefd255d4}: Install assembly C:\$WINDOWS.~BT\Work\MachineSpecific\Working\srcworking\agentmgr\CCSIAgent\005A53BA\SxsAsm9 failed with 0x80070bc2
+2016-07-21 20:38:40, Error      [0x080390] MIG    Failure while calling IPostApply->PostApply for Plugin={ServerPath="%windir%\system32\migration\SxsMigPlugin.dll", CLSID={d2caca93-9eef-4c24-9790-61cdefd255d4}, ThreadingModel=Apartment}. Error: 0x80070BC2
+2016-07-21 20:38:40, Error                 SP     Error READ, 0x00000BC2 while gathering/applying object: post-apply, Action,CMXEPlugin,C:\$WINDOWS.~BT\Work\MachineSpecific\Working\agentmgr\CCSIAgent,%windir%\system32\migration\SxsMigPlugin.dll,{d2caca93-9eef-4c24-9790-61cdefd255d4},Apartment. Will return 2[gle=0x000000cb]
+2016-07-21 20:39:52, Error                 MIG    COnlineWinNTPlatform::AddPathToSearchIndexer - Failed to create CSearchManager instance, error: 0x80070422[gle=0x000003f0]
+2016-07-21 20:41:41, Error      [0x0808fe] MIG    Plugin {0b23c863-4410-4153-8733-a60c9b1990fb}: TableTextServiceMig!RemoveObsoleteCHSHKLMRegkey - fail to open regkey (software\Microsoft\CTF\TIP\{E429B25A-E5D3-4D1F-9BE3-0C608477E3A1}\LanguageProfile\0x00000804) = 2
+2016-07-21 20:41:41, Error      [0x0808fe] MIG    Plugin {0b23c863-4410-4153-8733-a60c9b1990fb}: TableTextServiceMig!ApplySuccess() remove HKLM Registries error
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (109EC12D-1C23-4DE9-9CEE-E6A8C3CB1D54) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (25DAC3B0-8A0D-434E-9F00-F4306A0DCA93) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (331C4D2F-8980-4697-BD94-DBD44B4087F6) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (3737D279-67F4-4891-A8AF-AAC7B14FB9B0) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (8B3E7156-C850-4BAC-B16C-CA0FA039C7CE) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (A7EB5D13-64BA-40B8-8878-8A4EFE5D90DC) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (B946B57E-1E6F-4A8D-8BC0-373CFD4D4485) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (109EC12D-1C23-4DE9-9CEE-E6A8C3CB1D54) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (25DAC3B0-8A0D-434E-9F00-F4306A0DCA93) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (331C4D2F-8980-4697-BD94-DBD44B4087F6) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (3737D279-67F4-4891-A8AF-AAC7B14FB9B0) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (8B3E7156-C850-4BAC-B16C-CA0FA039C7CE) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (A7EB5D13-64BA-40B8-8878-8A4EFE5D90DC) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (B946B57E-1E6F-4A8D-8BC0-373CFD4D4485) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (109EC12D-1C23-4DE9-9CEE-E6A8C3CB1D54) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (25DAC3B0-8A0D-434E-9F00-F4306A0DCA93) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (331C4D2F-8980-4697-BD94-DBD44B4087F6) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (3737D279-67F4-4891-A8AF-AAC7B14FB9B0) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (8B3E7156-C850-4BAC-B16C-CA0FA039C7CE) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (A7EB5D13-64BA-40B8-8878-8A4EFE5D90DC) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:24, Error      [0x0808fe] MIG    Plugin {12FF03A1-5339-4bd6-B557-9227E0675910}: Miniport NIC (B946B57E-1E6F-4A8D-8BC0-373CFD4D4485) does not have a matched INetCfg adapter.
+
+2016-07-21 20:42:33, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:42:33, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\DefaultAppPool. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:42:33, Error      [0x0803b6] MIG    Can't retrieve group information for user IIS APPPOOL\.NET v4.5 Classic. NetUserGetLocalGroups failed 0x000008AD
+2016-07-21 20:43:33, Error                 MOUPG  CSetupHost::ReportEventW(1665): Result = 0x8024F005
+2016-07-21 20:43:33, Error                 MOUPG  SetupHost: Reporting post reboot event failed: hr = [0x8024F005]
