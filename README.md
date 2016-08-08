@@ -1,7 +1,10 @@
-# LogAnalyzer
+# LogFileParser
 Gathers a defined subset of logs and creates a queryable class for it.
 
 ## Examples
+
+### Dot Sourcing
+. 'C:\OneDrive\## Sources\Git\LogFileParser\LogFileParser.ps1'
 
 ### loading complete directory recursive
 $newLogParser = [LogFileParser]::new('C:\OneDrive\## Sources\Git\DemoLogs\')  
