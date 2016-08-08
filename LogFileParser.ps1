@@ -3,7 +3,7 @@
 <#	
         .NOTES
         ===========================================================================
-        Created on:   	02.08.2016
+        Created on:   	07.08.2016
         Created by:   	David das Neves
         Version:        0.1
         Project:        LogAnalyzer
@@ -16,12 +16,11 @@
 
 ## Enumeration of the LogFileTypes
 enum LogFileTypes { 
-
-       SCCM
-       CBS   
-       Upgrade
-       DISM
-   }
+    SCCM
+    CBS   
+    Upgrade
+    DISM
+}
    
 ## Class of the LogParser which can open n logfiles
 class LogFileParser
@@ -55,7 +54,7 @@ class LogFileParser
         }
         else
         {
-            Write-Error 'Path was not reachable. Please verify your Path.'
+            Write-Error -Message 'Path was not reachable. Please verify your Path.'
         }    
     }
     #endregion
@@ -95,48 +94,54 @@ class ParsedLogFile
     ParsedLogFile($LogFilePath, $LogFileType)
     {     
         $this.LogFilePath = $LogFilePath
-        $this.LogFileType =  [LogFileTypes]$LogFileType
+        $this.LogFileType = [LogFileTypes]$LogFileType
         $this.Init()
     }
 
     ## Initialization of class and log
     hidden Init()
     {        
-        if (Test-Path $this.LogFilePath)
+        if (Test-Path -Path $this.LogFilePath)
         {            
             # Constructor Code
             $this.LogFilePath = $this.LogFilePath
-            Write-Host "Parsing LogFile $($this.LogFilePath) with LogfileType $($this.LogFileType)."
+            Write-Host -Object "Parsing LogFile $($this.LogFilePath) with LogfileType $($this.LogFileType)."
             $actualParsedLog = Get-RegExParsedLogfile -Path $this.LogFilePath -LogFileType $this.LogFileType
-            Write-Host 'Parsing done.'
+            Write-Host -Object 'Parsing done.'
             $this.ParsedLogData = $actualParsedLog.Log
-            $This.ColumnNames = $actualParsedLog.Keys
+            $this.ColumnNames = $actualParsedLog.Keys
         }
         else
         {
-            Write-Error "Path was not reachable. Please verify your Path: $($this.LogFilePath)."
+            Write-Error -Message "Path was not reachable. Please verify your Path: $($this.LogFilePath)."
         }   
     }
 
     # Returns the column Keys
     [string[]] GetColumnNames()
     {
-        return $this.ColumnNames         
+        return $this.ColumnNames
     }
 
     # Returns lines with errors
     [int[]] GetLinesWithErrors()
     {
-        $LinesWithErrors = ($this.ParsedLogData).Where{$_.Entry -like '*error*'}
+        $LinesWithErrors = ($this.ParsedLogData).Where{
+            $_.Entry -like '*error*'
+        }
         return $LinesWithErrors
     }
 
     # Returns lines with errors
     [int[]] GetLinesWithErrorsHeuristic()
     {
-        $LinesWithErrors = (($this.ParsedLogData).Where{$_.Entry -like '*error*'}).RowNum
+        $LinesWithErrors = (($this.ParsedLogData).Where{
+                $_.Entry -like '*error*'
+        }).RowNum
         $RowList = Get-RowNumbersInRange $LinesWithErrors
-        $ShowingRows = ($this.ParsedLogData).Where{ $_.RowNum -in $RowList}
+        $ShowingRows = ($this.ParsedLogData).Where{
+            $_.RowNum -in $RowList
+        }
         return $LinesWithErrors
     }
 
@@ -144,16 +149,22 @@ class ParsedLogFile
     # Overload with Range
     [int[]] GetLinesWithErrorsHeuristic([int]$Range)
     {
-        $LinesWithErrors = (($this.ParsedLogData).Where{$_.Entry -like '*error*'}).RowNum
+        $LinesWithErrors = (($this.ParsedLogData).Where{
+                $_.Entry -like '*error*'
+        }).RowNum
         $RowList = Get-RowNumbersInRange $LinesWithErrors -Range $Range
-        $ShowingRows = ($this.ParsedLogData).Where{ $_.RowNum -in $RowList}
+        $ShowingRows = ($this.ParsedLogData).Where{
+            $_.RowNum -in $RowList
+        }
         return $LinesWithErrors
     }
     
     # Returns lines with errors
     [int[]] GetRowNumbersWithErrors()
     {
-        $LinesWithErrors = (($this.ParsedLogData).Where{$_.Entry -like '*error*'}).RowNum
+        $LinesWithErrors = (($this.ParsedLogData).Where{
+                $_.Entry -like '*error*'
+        }).RowNum
         return $LinesWithErrors  
     }
     #endregion
@@ -164,32 +175,32 @@ class ParsedLogFile
 function Get-RowNumbersInRange
 {
     <#
-    .Synopsis
-       Get-RowNumbersInRange
-    .DESCRIPTION
-       Heuristic method, which returns a list of all transmitted rowlines addiing a number of lines n ($Range) before and after.
-    .EXAMPLE
-       $rowsWithErrors = 21,345,456
-       $allRowsToSHow = Get-RowNumbersInRange -RowNumbers $rowsWithErrors -Range 10 
+            .Synopsis
+            Get-RowNumbersInRange
+            .DESCRIPTION
+            Heuristic method, which returns a list of all transmitted rowlines addiing a number of lines n ($Range) before and after.
+            .EXAMPLE
+            $rowsWithErrors = 21,345,456
+            $allRowsToSHow = Get-RowNumbersInRange -RowNumbers $rowsWithErrors -Range 10 
     #>
     [CmdletBinding()]    
     Param
     (
         #Previous calculated set of rowNumbers.
-        [Parameter(Mandatory=$true,
-                   ValueFromPipelineByPropertyName=$true,
-                   Position=0)]
+        [Parameter(Mandatory = $true,
+                ValueFromPipelineByPropertyName = $true,
+        Position = 0)]
         $RowNumbers,
 
-        [Parameter(Mandatory=$false,                   
-                   Position=1)]
+        [Parameter(Mandatory = $false,                   
+        Position = 1)]
         [int]$Range = 20
     )
     Begin
     { }
     Process
     {
-        $allShowingRowNumbers = New-Object System.Collections.Generic.List``1[Int]
+        $allShowingRowNumbers = New-Object -TypeName System.Collections.Generic.List``1[Int]
         foreach ($rowNum in $RowNumbers)
         {
             $min = $rowNum - $Range
@@ -197,7 +208,7 @@ function Get-RowNumbersInRange
 
             for ($x = $min; $x -lt $max; $x += 1) 
             {
-              $allShowingRowNumbers.Add($x)
+                $allShowingRowNumbers.Add($x)
             }
         }        
         $allShowingRowNumbers
@@ -210,20 +221,20 @@ function Get-RowNumbersInRange
 function Get-LogFileType
 {
     <#
-    .Synopsis
-       Get-LogFileType
-    .DESCRIPTION
-       Returns the type of the transmitted LogFile.
-    .EXAMPLE       
-       $LogFileType = Get-LogFileType -LogFileName 'dism.log'
+            .Synopsis
+            Get-LogFileType
+            .DESCRIPTION
+            Returns the type of the transmitted LogFile.
+            .EXAMPLE       
+            $LogFileType = Get-LogFileType -LogFileName 'dism.log'
     #>
     [CmdletBinding()]    
     Param
     (
         #Name of the logFile
-        [Parameter(Mandatory=$true,
-                   ValueFromPipelineByPropertyName=$true,
-                   Position=0)]
+        [Parameter(Mandatory = $true,
+                ValueFromPipelineByPropertyName = $true,
+        Position = 0)]
         $LogFileName
     )
     Begin
@@ -233,17 +244,44 @@ function Get-LogFileType
         switch ($LogFileName)
         {
             #DISM
-            {$_ -like 'dism*'}     {[LogFileTypes]::DISM ;break;}
+            {
+                $_ -like 'dism*'
+            }     
+            {
+                [LogFileTypes]::DISM 
+                break
+            }
 
             #Upgrade
-            {$_ -like 'setupact*'} {[LogFileTypes]::Upgrade;break;}
-            {$_ -like 'setuperr*'} {[LogFileTypes]::Upgrade;break;}
+            {
+                $_ -like 'setupact*'
+            } 
+            {
+                [LogFileTypes]::Upgrade
+                break
+            }
+            {
+                $_ -like 'setuperr*'
+            } 
+            {
+                [LogFileTypes]::Upgrade
+                break
+            }
 
             #CBS
-            {$_ -like 'cbs*'}      {[LogFileTypes]::CBS;break;}
+            {
+                $_ -like 'cbs*'
+            }      
+            {
+                [LogFileTypes]::CBS
+                break
+            }
                   
             #SCCM
-            default                {[LogFileTypes]::SCCM}
+            default                
+            {
+                [LogFileTypes]::SCCM
+            }
         }
     }
     End
@@ -299,7 +337,7 @@ function Get-RegExParsedLogfile
         $GatherOnlyLinesWhichContain = '' 
     )
     
-    $t = (Get-Content -Path $Path -ReadCount 1000)#.Split([System.Environment]::NewLine)
+    $t = (Get-Content -Path $Path -ReadCount 1000).Split([System.Environment]::NewLine)
 
     if ($GatherOnlyLineWhichContain)
     {
@@ -325,18 +363,18 @@ function Get-RegExParsedLogfile
             }
             'Upgrade'
             {
-                $rx= '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,17}(\[(?<ErrorCode>\w*)\])?(?<Component>\s\w+)?\s+(?<Message>.*)'
+                $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,17}(\[(?<ErrorCode>\w*)\])?(?<Component>\s\w+)?\s+(?<Message>.*)'
                 break
             }
             'DISM'
             {            
-                $rx= '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,18}(?<Component>\w+)?\s+(?<Message>.*)'
+                $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,18}(?<Component>\w+)?\s+(?<Message>.*)'
                 break
             }
         
             default      
             {
-                Write-Error 'Not Type has been set or found.'
+                Write-Error -Message 'Not Type has been set or found.'
             }
         }        
     }
@@ -344,15 +382,12 @@ function Get-RegExParsedLogfile
   
     [string[]]$names = 'RowNum'  
     $names += $rx.GetGroupNames() | Where-Object -FilterScript {
-        $_ -match '\w{2}' 
+        $_ -match '\w{2}'
     } 
     
-    [long]$rowNum = 0  
-
-    $t | Start-Job -ScriptBlock { 
-         Param($t, $rx, $names, $rowNum)
-            $t | ForEach-Object -Process  {
-            $rx.Matches($_) | ForEach-Object -Process {
+    [long]$rowNum = 0   
+    $data = $t | ForEach-Object -Process  {
+        $rx.Matches($_) | ForEach-Object -Process {
             $match = $_
             $names | ForEach-Object -Begin {
                 $hash = [Ordered]@{}
@@ -364,76 +399,15 @@ function Get-RegExParsedLogfile
                 }
                 else
                 {
-                    $hash.Add($_, $match.groups["$_"].Value)    
+                    $hash.Add($_, $match.groups["$_"].Value)
                 }                
             } -End {
-                    [PSCustomObject]$hash
+                [PSCustomObject]$hash
             }
         }
-    }    }
-    #$data = 
+    }    
     $object = New-Object -TypeName PSObject
     $object | Add-Member -MemberType NoteProperty -Name Keys -Value $names
     $object | Add-Member -MemberType NoteProperty -Name Log -Value $data 
     $object    
 }
-
-
-Set-Location $PSScriptRoot
-Set-Location -Path 'C:\OneDrive\## Sources\Git\LogFileParser'
-'#############################'
-
-##UpgradePath
-#$newLogParser = [LogFileParser]::new('C:\OneDrive\## Sources\Git\DemoLogs\Upgrade\setupact.log')  
-
- #Measure-Command -Expression { $c = Get-Content 'C:\OneDrive\## Sources\Git\DemoLogs\CBS\cbsbig.log' }
- #Measure-Command -Expression {$b = (Get-Content -Path 'C:\OneDrive\## Sources\Git\DemoLogs\CBS\cbsbig.log' -ReadCount 10000).Split([System.Environment]::NewLine)}
-
-#    Measure-Command -Expression { $c = Get-Content 'C:\OneDrive\## Sources\Git\DemoLogs\dism\dism.log' }
-#    Measure-Command -Expression {$b = (Get-Content -Path 'C:\OneDrive\## Sources\Git\DemoLogs\dism\dism.log' -ReadCount 1000).Split([System.Environment]::NewLine)}
-
-#DISM
-Measure-Command -Expression {  $newLogParser = [LogFileParser]::new('C:\OneDrive\## Sources\Git\DemoLogs\CBS\cbs.log')  }
-
-get-job | Receive-Job
-
-$newLogParser.ParsedLogFiles[0].ParsedLogData|ogv
-
-$newLogParser = [LogFileParser]::new('C:\OneDrive\## Sources\Git\DemoLogs\CBS\cbs.log') 
-
-
-
-$newLogParser.ParsedLogFiles[0].ParsedLogData.Count
-
-#$smsts = Get-RegExParsedLogfile -Path ..\DemoLogs\CCMExec.log  -LogFileType SCCM
-# instantiate class
-#$ThisParsedLogFile = [ParsedLogFile]::new($smsts)
-
-$newLogParser = $null
-$newLogParser = [LogFileParser]::new('..\DemoLogs\') 
-
-#($newLogParser.ParsedLogFiles[0].ParsedLogData).Where{ $_.RowNum -gt 500 -and $_.RowNum -lt 510  }
-#$LinesWithErrors = (($newLogParser.ParsedLogFiles[0].ParsedLogData).Where{$_.Entry -like '*error*'}).RowNum
-
-
-
-#$newLogParser = [LogFileParser]::new('..\DemoLogs\')
-#$newLogParser.ParsedLogFiles[0].ParsedLogData.Log | Out-GridView
-#$newLogParser.ParsedLogFiles[1].ParsedLogData | Select-Object -First 10
-#$newLogParser.ParsedLogFiles.Where{($_.LogFilePath -like '*ccmexec*')}
-#($newLogParser.ParsedLogFiles.Where{$_.LogFilePath -like '*ccmexec*'}).ParsedLogData.Where{$_.Entry -like '*error*'}
-
-
-$RowList = Get-RowNumbersInRange $LinesWithErrors
-$ShowingRows = ($newLogParser.ParsedLogFiles[0].ParsedLogData).Where{ $_.RowNum -in $RowList}
-
-
-$ShowingRows | Add-Member -MemberType NoteProperty -Name Set -Value 'White' -Force
-$ShowingRows.Where{$_.Entry -like '*error*'} | ForEach-Object {$_.Set = 'Red'}
-$ShowingRows.Where{$_.Set -eq 'Red'}
-
-
-
-
-
-$showingRows | Out-GridView
