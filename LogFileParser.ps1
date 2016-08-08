@@ -346,39 +346,36 @@ function Get-RegExParsedLogfile
 
     [regex]$rx = $RegexString
 
-    if ($LogFileType)   
+    # for each LogFileType a different Regex-String is used to parse the log.
+    switch ($LogFileType)
     {
-        # for each LogFileType a different Regex-String is used to parse the log.
-        switch ($LogFileType)
+        'SCCM'       
+        { 
+            $rx = '<!\[LOG\[(?<Entry>.*)]LOG]!><time="(?<Time>.*)\.\d{3}-\d{3}"\s+date="(?<Date>.*)"\s+component="(?<Component>.*)"\s+context="(?<Context>.*)"\s+type="(?<Type>.*)"\s+thread="(?<Thread>.*)"\s+file="(?<File>.*):(?<CodeLine>\d*)">' 
+            break
+        }
+        'CBS'        
+        { 
+            $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s+(?<Component>\w+)\s+(?<Message>.*)$'
+            break
+        }
+        'Upgrade'
         {
-            'SCCM'       
-            { 
-                $rx = '<!\[LOG\[(?<Entry>.*)]LOG]!><time="(?<Time>.*)\.\d{3}-\d{3}"\s+date="(?<Date>.*)"\s+component="(?<Component>.*)"\s+context="(?<Context>.*)"\s+type="(?<Type>.*)"\s+thread="(?<Thread>.*)"\s+file="(?<File>.*):(?<CodeLine>\d*)">' 
-                break
-            }
-            'CBS'        
-            { 
-                $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s+(?<Component>\w+)\s+(?<Message>.*)$'
-                break
-            }
-            'Upgrade'
-            {
-                $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,17}(\[(?<ErrorCode>\w*)\])?(?<Component>\s\w+)?\s+(?<Message>.*)'
-                break
-            }
-            'DISM'
-            {            
-                $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,18}(?<Component>\w+)?\s+(?<Message>.*)'
-                break
-            }
+            $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,17}(\[(?<ErrorCode>\w*)\])?(?<Component>\s\w+)?\s+(?<Message>.*)'
+            break
+        }
+        'DISM'
+        {            
+            $rx = '(?<Date>\d{4}-\d{2}-\d{2})\s+(?<Time>(\d{2}:)+\d{2}),\s+(?<Type>\w+)\s{1,18}(?<Component>\w+)?\s+(?<Message>.*)'
+            break
+        }
         
-            default      
-            {
-                Write-Error -Message 'Not Type has been set or found.'
-            }
-        }        
-    }
-     
+        default      
+        {
+            Write-Error -Message 'Not Type has been set or found.'
+        }
+    }        
+        
   
     [string[]]$names = 'RowNum'  
     $names += $rx.GetGroupNames() | Where-Object -FilterScript {
@@ -391,17 +388,24 @@ function Get-RegExParsedLogfile
             $match = $_
             $names | ForEach-Object -Begin {
                 $hash = [Ordered]@{}
+               # $thisDate = $null
             } -Process {
                 if ($_ -eq 'RowNum')
                 {
                     $rowNum += 1
                     $hash.Add($_, $rowNum) 
                 }
+                elseif ($_ -eq 'Thread')
+                {                    
+                    $hash.Add($_, [int]($match.groups["$_"].Value)) 
+                }
                 else
                 {
                     $hash.Add($_, $match.groups["$_"].Value)
                 }                
             } -End {
+                $thisDate=[datetime]($hash.Date + ' ' + $hash.Time)
+                $hash.Add('DateTime', $thisDate)                
                 [PSCustomObject]$hash
             }
         }
