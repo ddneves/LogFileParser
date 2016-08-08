@@ -411,7 +411,9 @@ function Get-RegExParsedLogfile
                         $hash.Add($_, $match.groups["$_"].Value)
                     }                
                 } -End {
-                   [PSCustomObject]$hash
+                    [PSCustomObject]$hash
+                    $thisDate=[datetime]($hash.Date + ' ' + $hash.Time)
+                    $hash.Add('DateTime', $thisDate) 
                 }
             }
         }
