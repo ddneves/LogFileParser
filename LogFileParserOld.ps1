@@ -377,7 +377,7 @@ function Get-RowNumbersInRange
     Param
     (
         #Previous calculated set of rowNumbers.
-        [Parameter(Mandatory = $true,HelpMessage='List of RowNumbers.',
+        [Parameter(Mandatory = $true,HelpMessage='Add help message for user',
                 ValueFromPipelineByPropertyName = $true,
         Position = 0)]
         $RowNumbers,
@@ -420,12 +420,12 @@ function Get-LogFileType
     Param
     (
         #Name of the logFile
-        [Parameter(Mandatory = $true,HelpMessage='The Name of the logfile.',
+        [Parameter(Mandatory = $true,
                 ValueFromPipelineByPropertyName = $true,
         Position = 0)]
         $LogFileName,
 
-        [Parameter(Mandatory = $true,HelpMessage='The LogFileTypeClasses load by LogFileParser.',
+        [Parameter(Mandatory = $true,
         Position = 0)]
         $LogFileTypeClasses
     )
@@ -445,13 +445,12 @@ function Get-LogFileType
         }
 
         # if no logtype has been found the default value is processed.
-        return (($LogFileTypeClasses.LoadedClasses) | Where-Object {$_.LogFiles -contains 'default'}).LogFileType       
+        return (($LogFileTypeClasses.LoadedClasses).Where{$_.LogFiles -contains 'default'}).LogFileType       
     }
     End
     { }
 }
 
-    
 function Get-RegExParsedLogfile
 {
     <#
@@ -481,12 +480,12 @@ function Get-RegExParsedLogfile
     param
     (
         #Contains the log file destination.
-        [Parameter(Mandatory = $true,HelpMessage='Contains the LogFile destination.', Position = 0)]
+        [Parameter(Mandatory = $true,HelpMessage='Add help message for user', Position = 0)]
         [String]
         $Path,
         
         #Contains the RegEx with named keys
-        [Parameter(Mandatory =$true,HelpMessage='The RegEx to parse the LogFile.', Position = 1)]
+        [Parameter(Mandatory =$true, Position = 1)]
         [String]
         $RegExString,
         
@@ -498,70 +497,13 @@ function Get-RegExParsedLogfile
         [Parameter(Position = 3)]
         [String]
         $GatherOnlyLinesWhichContain = '' 
-    )   
-    function Select-Names
-    {
-        <#
-            .SYNOPSIS
-            SubFunction
-        #>
-        begin
-        {        
-            $hash = [Ordered]@{}        
-        }
-        process
-        {        
-            if ($_ -eq 'RowNum')
-            {
-                $rowNum += 1
-                $hash.Add($_, $rowNum) 
-            }
-            elseif ($_ -eq 'Thread')
-            {
-                $hash.Add($_, [int]($match.groups["$_"].Value))
-            }
-            else
-            {
-                $hash.Add($_, $match.groups["$_"].Value)
-            }
-        }
-        end
-        {
-            $thisDate = [datetime]($hash.Date + ' ' + $hash.Time)
-            $hash.Add('DateTime', $thisDate)                
-            [PSCustomObject]$hash                    
-        }
-    }
-    function Select-Matches
-    {
-        <#
-            .SYNOPSIS
-            SubFunction
-        #>
-        process
-        {        
-            $match = $_
-            $names | Select-Names                        
-        }
-    }
-    function Select-Line
-    {
-        <#
-            .SYNOPSIS
-            SubFunction
-        #>
-        process
-        {      
-            $rx.Matches($_) | Select-Matches            
-        }
-    }
-
-    #Get-Content with ReadCount, because of perfomance-improvement.
+    )
+    
     $t = (Get-Content -Path $Path -ReadCount 1000).Split([Environment]::NewLine)
 
     if ($GatherOnlyLineWhichContain)
     {
-        $t = $t | Select-String -Pattern $GatherOnlyLinesWhichContain
+        $t = $t| Select-String -Pattern $GatherOnlyLinesWhichContain
     }         
   
     [regex]$rx = $RegexString
@@ -572,10 +514,33 @@ function Get-RegExParsedLogfile
     } 
     
     [long]$rowNum = 0   
-
-    # Here is the data parsed. This is done by 3 sub routines which work faster than Foreach/Foreach-Object
-    $data = $t | Select-Line    
-    
+    $data = $t | ForEach-Object -Process  {
+        $rx.Matches($_) | ForEach-Object -Process {
+            $match = $_
+            $names | ForEach-Object -Begin {
+                $hash = [Ordered]@{}
+                # $thisDate = $null
+            } -Process {
+                if ($_ -eq 'RowNum')
+                {
+                    $rowNum += 1
+                    $hash.Add($_, $rowNum) 
+                }
+                elseif ($_ -eq 'Thread')
+                {
+                    $hash.Add($_, [int]($match.groups["$_"].Value))
+                }
+                else
+                {
+                    $hash.Add($_, $match.groups["$_"].Value)
+                }                
+            } -End {
+                $thisDate = [datetime]($hash.Date + ' ' + $hash.Time)
+                $hash.Add('DateTime', $thisDate)                
+                [PSCustomObject]$hash
+            }
+        }
+    }    
     $object = New-Object -TypeName PSObject
     $object | Add-Member -MemberType NoteProperty -Name Keys -Value $names
     $object | Add-Member -MemberType NoteProperty -Name Log -Value $data 

@@ -1,5 +1,7 @@
 # dot sourcing
-. 'C:\OneDrive\## Sources\Git\LogFileParser\LogFileParser.ps1'
+. 'C:\OneDrive\## Sources\Git\LogFileParser\LogFileParserOld.ps1'
+
+
 
 $runs = 40
 (Measure-Command -Expression {       
