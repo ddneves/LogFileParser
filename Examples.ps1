@@ -1,5 +1,5 @@
 # Dot Sourcing
-. 'C:\OneDrive\## Sources\Git\LogFileParser\LogFileParserExt.ps1'
+. 'C:\OneDrive\## Sources\Git\LogFileParser\LogFileParser.ps1'
 
 # loading complete directory recursive
 $newLogParser = [LogFileParser]::new('C:\OneDrive\## Sources\Git\DemoLogs\')  
@@ -20,7 +20,22 @@ $newLogParser.ParsedLogFiles
 $newLogParser.ParsedLogFiles | Select-Object LogFilePath, LogFileType
 
 # show data
-$newLogParser.ParsedLogFiles[0].ParsedLogData
+$newLogParser.ParsedLogFiles[0].ParsedLogData | Out-GridView
+
+# columns of data, which can be used for conditions
+$newLogParser.ParsedLogFiles[0].GetColumnNames()
+
+# Gets lines with errors
+$newLogParser.ParsedLogFiles[0].GetLinesWithErrors() | Out-GridView
+
+# Gets lines with warnings
+$newLogParser.ParsedLogFiles[0].GetLinesWithWarnings() | Out-GridView
+
+# gather only rows, which contain errors and show also all 20 lines before and after the error-lines
+$newLogParser.ParsedLogFiles[0].GetLinesWithErrorsWithRange(20) | Out-GridView
+
+# gather only rows, which contain warnings and show also all 20 lines before and after the warning-lines
+$newLogParser.ParsedLogFiles[0].GetLinesWithWarningsWithRange(20) | Out-GridView
 
 # columns of data, which can be used for conditions
 $newLogParser.ParsedLogFiles[0].GetColumnNames()
@@ -37,8 +52,6 @@ $newLogParser.ParsedLogFiles[0].GetColumnNames()
 #last 2 days
 ($newLogParser.ParsedLogFiles[0].ParsedLogData).Where{ $_.DateTime -gt ([DateTime]::Now).AddDays(-2)  }
 
-# gather only rows, which contain errors and show also all 20 lines before and after the error-lines
-$newLogParser.ParsedLogFiles[0].GetLinesWithErrorsWithRange(20) | Out-GridView
 
 #Example add additional LogFileClass
 $exampleClass =  [LogFileTypeClass]::new()

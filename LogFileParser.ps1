@@ -445,7 +445,7 @@ function Get-LogFileType
         }
 
         # if no logtype has been found the default value is processed.
-        return (($LogFileTypeClasses.LoadedClasses) | Where-Object {$_.LogFiles -contains 'default'}).LogFileType       
+        return (($LogFileTypeClasses.LoadedClasses).Where{$_.LogFiles -contains 'default'}).LogFileType       
     }
     End
     { }
@@ -513,7 +513,7 @@ function Get-RegExParsedLogfile
         {        
             if ($_ -eq 'RowNum')
             {
-                $rowNum += 1
+                $global:rowNum += 1
                 $hash.Add($_, $rowNum) 
             }
             elseif ($_ -eq 'Thread')
@@ -567,11 +567,10 @@ function Get-RegExParsedLogfile
     [regex]$rx = $RegexString
 
     [string[]]$names = 'RowNum'  
-    $names += $rx.GetGroupNames() | Where-Object -FilterScript {
-        $_ -match '\w{2}'
-    } 
+    $names += $rx.GetGroupNames().Where{$_ -match '\w{2}'} 
     
-    [long]$rowNum = 0   
+    #rowNum
+    Set-Variable -Name rowNum -Value 0 -Scope Global
 
     # Here is the data parsed. This is done by 3 sub routines which work faster than Foreach/Foreach-Object
     $data = $t | Select-Line    
