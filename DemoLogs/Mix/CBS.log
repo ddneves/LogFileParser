@@ -1,0 +1,52 @@
+﻿2016-07-20 19:00:15, Info                  CBS    TI: --- Initializing Trusted Installer ---
+2016-07-20 19:00:15, Info                  CBS    TI: Last boot time: 2016-07-20 19:00:01.496
+2016-07-20 19:00:15, Info                  CBS    Starting TrustedInstaller initialization.
+2016-07-20 19:00:15, Info                  CBS    Ending TrustedInstaller initialization.
+2016-07-20 19:00:15, Info                  CBS    Starting the TrustedInstaller main loop.
+2016-07-20 19:00:15, Info                  CBS    TrustedInstaller service starts successfully.
+2016-07-20 19:00:15, Info                  CBS    No startup processing required, TrustedInstaller service was not set as autostart
+2016-07-20 19:00:15, Info                  CBS    Startup processing thread terminated normally
+2016-07-20 19:00:15, Info                  CBS    TI: Startup Processing completes, release startup processing lock.
+2016-07-20 19:00:15, Info                  CBS    Starting TiWorker initialization.
+2016-07-20 19:00:15, Info                  CBS    Ending TiWorker initialization.
+2016-07-20 19:00:15, Info                  CBS    Starting the TiWorker main loop.
+2016-07-20 19:00:15, Info                  CBS    TiWorker starts successfully.
+2016-07-20 19:00:15, Info                  CBS    Universal Time is: 2016-07-20 17:00:15.440
+2016-07-20 19:00:15, Info                  CBS    Loaded Servicing Stack v10.0.14393.0 with Core: C:\WINDOWS\winsxs\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_10.0.14393.0_none_36d3ccc3ddfd1ecb\cbscore.dll
+2016-07-20 19:00:15, Info                  CSI    00000001@2016/7/20:17:00:15.455 WcpInitialize (wcp.dll version 0.0.0.6) called (stack @0x7ffb47756c49 @0x7ffb47b255bb @0x7ffb47b26372 @0x7ff61a812d9d @0x7ff61a8135e0 @0x7ffb66787d63)
+2016-07-20 19:00:15, Info                  CBS    NonStart: Set pending store consistency check.
+2016-07-20 19:00:15, Info                  CBS    Session: 30532264_801720794 initialized by client WindowsUpdateAgent, external staging directory: (null), external registry directory: (null
+2016-07-20 19:00:15, Info                  CBS    Failed to internally open package. [HRESULT = 0x800f0805 - CBS_E_INVALID_PACKAGE]
+2016-07-20 19:00:15, Info                  CBS    Failed to OpenPackage using worker session [HRESULT = 0x800f0805]
+2016-07-20 19:00:15, Info                  CBS    Session: 30532264_801720795 initialized by client WindowsUpdateAgent, external staging directory: (null), external registry directory: (null
+2016-07-20 19:00:15, Info                  CBS    Failed to internally open package. [HRESULT = 0x800f0805 - CBS_E_INVALID_PACKAGE]
+2016-07-20 19:00:15, Info                  CBS    Failed to OpenPackage using worker session [HRESULT = 0x800f0805]
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{92EC2FD0-E6D7-4983-9685-02789AFB5C86}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Basic-zh-cn-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{6B1BDF42-539B-4C6F-AD6C-727D06B404E1}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Fonts-Hans-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{D063A4FB-E8B6-43A5-9ECC-C9301EDC15DB}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Handwriting-zh-cn-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{FC6EE896-D5CA-4313-B831-445B27605F79}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-OCR-zh-cn-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{4C36A54F-50BC-4588-AA8B-9B69801BFFA3}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Speech-zh-cn-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{32EF2A88-2C6B-4786-B0FD-88537EC7918D}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-TextToSpeech-zh-cn-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{56B3B446-8274-4CB5-8931-4D75D10FB068}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Basic-nso-za-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{9B8E8CB8-DF03-44D4-88BD-B5C73A99D1BD}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Basic-sr-cyrl-rs-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{21741B0D-AC5A-4FD7-B7A0-77354955F717}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Handwriting-sr-cyrl-rs-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{3E74763E-67B2-40C4-A753-2A02FA285C28}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LIP-LanguagePack-Package~31bf3856ad364e35~amd64~ky-KG~10.0.14393.0, ApplicableState: 112, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{072FDD9C-11AA-419B-88A4-1C60E0268F15}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Package_for_KB3072073~31bf3856ad364e35~amd64~~10.0.1.1, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{D27A15A8-AB96-4C7A-8490-69320437F767}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-Client-LanguagePack-Package~31bf3856ad364e35~amd64~es-ES~10.0.14393.0, ApplicableState: 112, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{8ABF0E84-C645-4CB8-B7CA-6314D86BDFF4}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LIP-LanguagePack-Package~31bf3856ad364e35~amd64~ga-IE~10.0.14393.0, ApplicableState: 112, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{EA1C6660-8600-4DD8-A245-A31763328CEA}, revision: 200
+2016-07-20 19:00:18, Info                  CBS    Read out cached applicability from TiLight for package: Microsoft-Windows-LanguageFeatures-Basic-yo-ng-Package~31bf3856ad364e35~amd64~~10.0.14393.0, ApplicableState: 0, CurrentState:0
+2016-07-20 19:00:18, Info                  CBS    WU creates the package, AppID:Device Driver Retrieval Client, UpdateID:{4B857F1A-0C0B-4F6E-BA81-040C6286B2D2}, revision: 200
