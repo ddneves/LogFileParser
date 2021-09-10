@@ -1,8 +1,7 @@
-
 name: '[ADR] Draft Architecture Decision Record'
-about: 'Issues for draft ADRs on which is worked on before they are being pushed via PR to the "proposed" state.'
+description: 'Issues for draft ADRs on which is worked on before they are being pushed via PR to the "proposed" state.'
 title: '[Draft ADR] <ADR Title>'
-labels: 'adr'
+labels: [adr]
 assignees:
 
   
@@ -11,20 +10,20 @@ body:
     attributes:
       value: |
         ## Required information
-- type: input
-  id: context
-  attributes:
-    label: Context
-    description: Please provide us some context.
-  validations:
-    required: false
-- type: input
-  id: problem
-  attributes:
-    label: Problem Statement
-    description: What are we trying to solve with this ADR? Why is it required?
-  validations:
-    required: true
+  - type: input
+    id: context
+    attributes:
+      label: Context
+      description: Please provide us some context.
+    validations:
+      required: false
+  - type: input
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What are we trying to solve with this ADR? Why is it required?
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
