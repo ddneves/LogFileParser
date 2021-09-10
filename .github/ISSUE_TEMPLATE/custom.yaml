@@ -2,9 +2,7 @@ name: '[ADR] Draft Architecture Decision Record'
 description: 'Issues for draft ADRs on which is worked on before they are being pushed via PR to the "proposed" state.'
 title: '[Draft ADR] <ADR Title>'
 labels: [adr]
-assignees:
-
-  
+assignees: ''  
 body:
   - type: markdown
     attributes:
