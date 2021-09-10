@@ -5,19 +5,18 @@ title: ''
 labels: bug
 assignees: ddneves
 
----
-
-- type: input
-  id: context
-  attributes:
-    label: Context
-    description: Please provide us some context.
-  validations:
-    required: false
-- type: input
-  id: problem
-  attributes:
-    label: Problem Statement
-    description: What are we trying to solve with this ADR? Why is it required?
-  validations:
-    required: true
+body:
+  - type: input
+    id: context
+    attributes:
+      label: Context
+      description: Please provide us some context.
+    validations:
+      required: false
+  - type: input
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What are we trying to solve with this ADR? Why is it required?
+    validations:
+      required: true
